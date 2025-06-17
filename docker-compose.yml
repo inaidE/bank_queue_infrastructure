@@ -32,6 +32,10 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      SECURITY_PASSWORD: ${SECURITY_PASSWORD}
+      SECURITY_USERNAME: ${SECURITY_USERNAME}
+    env_file:
+      - .env
     ports:
       - '8080:8080'
 
@@ -42,6 +46,8 @@ services:
 #    build:
 #      context: ../bank_queue_web   # путь к локальному репо web
 #      dockerfile: Dockerfile
+#      args:
+#        REACT_APP_API_URL: http://backend:8080/api
 #    container_name: bankqueue_frontend
 #    restart: always
 #    depends_on:
