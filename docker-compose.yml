@@ -43,21 +43,21 @@ services:
   # -----------------------------
   # 3) Сервис frontend
   # -----------------------------
-#  frontend:
-#    build:
-#      context: ../bank_queue_web   # путь к локальному репо web
-#      dockerfile: Dockerfile
-#      args:
-#        REACT_APP_API_URL: http://backend:8080/api
-#    container_name: bankqueue_frontend
-#    restart: always
-#    depends_on:
-#      - backend
+  frontend:
+    build:
+      context: ../bank_queue_web   # путь к локальному репо web
+      dockerfile: Dockerfile
+      args:
+        REACT_API_URL: http://backend:8080/api
+    container_name: bankqueue_frontend
+    restart: always
+    depends_on:
+      - backend
 #    environment:
 #      # React-приложение внутри контейнера будет обращаться по имени “backend”
 #      REACT_APP_API_URL: http://backend:8080/api
-#    ports:
-#      - '3000:80'                     # nginx внутри отдаёт на 80-й, пробросим на 3000
+    ports:
+      - '3000:80'                     # nginx внутри отдаёт на 80-й, пробросим на 3000
 
 volumes:
   bankqueue_data:
